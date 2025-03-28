@@ -169,6 +169,1918 @@ lsusb (no firmware loaded):
  * 128MB RAM
  * BT656 sensor
 
+lsusb (no firmware loaded):
+
+    Bus 001 Device 010: ID 04e8:2059 Samsung Electronics Co., Ltd
+    Device Descriptor:
+      bLength                18
+      bDescriptorType         1
+      bcdUSB               2.00
+      bDeviceClass          255 Vendor Specific Class
+      bDeviceSubClass         0
+      bDeviceProtocol         0
+      bMaxPacketSize0        64
+      idVendor           0x04e8 Samsung Electronics Co., Ltd
+      idProduct          0x2059
+      bcdDevice            0.00
+      iManufacturer           0
+      iProduct                0
+      iSerial                 0
+      bNumConfigurations      1
+      Configuration Descriptor:
+        bLength                 9
+        bDescriptorType         2
+        wTotalLength       0x0012
+        bNumInterfaces          1
+        bConfigurationValue     1
+        iConfiguration          0
+        bmAttributes         0xc0
+          Self Powered
+        MaxPower                2mA
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        0
+          bAlternateSetting       0
+          bNumEndpoints           0
+          bInterfaceClass       255 Vendor Specific Class
+          bInterfaceSubClass      1
+          bInterfaceProtocol      1
+          iInterface              9 M
+    Device Qualifier (for other device speed):
+      bLength                10
+      bDescriptorType         6
+      bcdUSB               2.00
+      bDeviceClass          255 Vendor Specific Class
+      bDeviceSubClass       255 Vendor Specific Subclass
+      bDeviceProtocol       255 Vendor Specific Protocol
+      bMaxPacketSize0        64
+      bNumConfigurations      1
+
+lsusb (firmware loaded):
+
+    Bus 001 Device 011: ID 04e8:205a Samsung Electronics Co., Ltd MAX64380
+    Device Descriptor:
+      bLength                18
+      bDescriptorType         1
+      bcdUSB               2.00
+      bDeviceClass          239 Miscellaneous Device
+      bDeviceSubClass         2
+      bDeviceProtocol         1 Interface Association
+      bMaxPacketSize0        64
+      idVendor           0x04e8 Samsung Electronics Co., Ltd
+      idProduct          0x205a
+      bcdDevice            0.00
+      iManufacturer           1 Maxim
+      iProduct                2 MAX64380
+      iSerial                 3 12345
+      bNumConfigurations      2
+      Configuration Descriptor:
+        bLength                 9
+        bDescriptorType         2
+        wTotalLength       0x053d
+        bNumInterfaces          6
+        bConfigurationValue     1
+        iConfiguration          0
+        bmAttributes         0x80
+          (Bus Powered)
+        MaxPower              400mA
+        Interface Association:
+          bLength                 8
+          bDescriptorType        11
+          bFirstInterface         0
+          bInterfaceCount         2
+          bFunctionClass         14 Video
+          bFunctionSubClass       3 Video Interface Collection
+          bFunctionProtocol       0
+          iFunction               2 MAX64380
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        0
+          bAlternateSetting       0
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      1 Video Control
+          bInterfaceProtocol      0
+          iInterface              2 MAX64380
+          VideoControl Interface Descriptor:
+            bLength                13
+            bDescriptorType        36
+            bDescriptorSubtype      1 (HEADER)
+            bcdUVC               1.10
+            wTotalLength       0x006f
+            dwClockFrequency        6.000000MHz
+            bInCollection           1
+            baInterfaceNr( 0)       1
+          VideoControl Interface Descriptor:
+            bLength                18
+            bDescriptorType        36
+            bDescriptorSubtype      2 (INPUT_TERMINAL)
+            bTerminalID             1
+            wTerminalType      0x0201 Camera Sensor
+            bAssocTerminal          0
+            iTerminal               0
+            wObjectiveFocalLengthMin      0
+            wObjectiveFocalLengthMax      0
+            wOcularFocalLength            0
+            bControlSize                  3
+            bmControls           0x00000800
+              PanTilt (Absolute)
+          VideoControl Interface Descriptor:
+            bLength                13
+            bDescriptorType        36
+            bDescriptorSubtype      5 (PROCESSING_UNIT)
+            bUnitID                 4
+            bSourceID               1
+            wMaxMultiplier        100
+            bControlSize            3
+            bmControls     0x0000463f
+              Brightness
+              Contrast
+              Hue
+              Saturation
+              Sharpness
+              Gamma
+              Gain
+              Power Line Frequency
+              Digital Multiplier
+            iProcessing             0
+            bmVideoStandards     0x02
+              NTSC - 525/60
+          VideoControl Interface Descriptor:
+            bLength                29
+            bDescriptorType        36
+            bDescriptorSubtype      6 (EXTENSION_UNIT)
+            bUnitID                 5
+            guidExtensionCode         {ba2b92d9-26f2-4294-42ae-e4eb4d68dd06}
+            bNumControls           14
+            bNrInPins               1
+            baSourceID( 0)          4
+            bControlSize            4
+            bmControls( 0)       0xff
+            bmControls( 1)       0x3f
+            bmControls( 2)       0x00
+            bmControls( 3)       0x00
+            iExtension              0
+          VideoControl Interface Descriptor:
+            bLength                29
+            bDescriptorType        36
+            bDescriptorSubtype      6 (EXTENSION_UNIT)
+            bUnitID                 6
+            guidExtensionCode         {df5dcd12-7d5f-4bba-bb6d-4b625add5272}
+            bNumControls           19
+            bNrInPins               1
+            baSourceID( 0)          4
+            bControlSize            4
+            bmControls( 0)       0xff
+            bmControls( 1)       0x87
+            bmControls( 2)       0x07
+            bmControls( 3)       0x00
+            iExtension              0
+          VideoControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      3 (OUTPUT_TERMINAL)
+            bTerminalID             2
+            wTerminalType      0x0101 USB Streaming
+            bAssocTerminal          0
+            bSourceID               5
+            iTerminal               0
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x84  EP 4 IN
+            bmAttributes            3
+              Transfer Type            Interrupt
+              Synch Type               None
+              Usage Type               Data
+            wMaxPacketSize     0x0010  1x 16 bytes
+            bInterval               9
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        1
+          bAlternateSetting       0
+          bNumEndpoints           0
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      2 Video Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          VideoStreaming Interface Descriptor:
+            bLength                            15
+            bDescriptorType                    36
+            bDescriptorSubtype                  1 (INPUT_HEADER)
+            bNumFormats                         2
+            wTotalLength                   0x006e
+            bEndpointAddress                 0x82  EP 2 IN
+            bmInfo                              0
+            bTerminalLink                       2
+            bStillCaptureMethod                 0
+            bTriggerSupport                     0
+            bTriggerUsage                       0
+            bControlSize                        1
+            bmaControls( 0)                     0
+            bmaControls( 1)                     0
+          VideoStreaming Interface Descriptor:
+            bLength                            23
+            bDescriptorType                    36
+            bDescriptorSubtype                 10 (FORMAT_MPEG2TS)
+            bFormatIndex                        1
+            bDataOffset                         0
+            bPacketLength                     188
+            bStrideLength                     188
+            guidStrideFormat                      {00000000-0000-0000-0000-000000000000}
+          VideoStreaming Interface Descriptor:
+            bLength                            28
+            bDescriptorType                    36
+            bDescriptorSubtype                 16 (FORMAT_FRAME_BASED)
+            bFormatIndex                        2
+            bNumFrameDescriptors                1
+            guidFormat                            {34363248-0000-0010-8000-00aa00389b71}
+            bBitsPerPixel                      12
+            bDefaultFrameIndex                  1
+            bAspectRatioX                      16
+            bAspectRatioY                       9
+            bmInterlaceFlags                 0x00
+              Interlaced stream or variable: No
+              Fields per frame: 2 fields
+              Field 1 first: No
+              Field pattern: Field 1 only
+            bCopyProtect                        0
+            bVariableSize                     1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                 17 (FRAME_FRAME_BASED)
+            bFrameIndex                         1
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                           1280
+            wHeight                           720
+            dwMinBitRate                     1000
+            dwMaxBitRate                 10000000
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwBytesPerLine                      0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                             6
+            bDescriptorType                    36
+            bDescriptorSubtype                 13 (COLORFORMAT)
+            bColorPrimaries                     1 (BT.709,sRGB)
+            bTransferCharacteristics            1 (BT.709)
+            bMatrixCoefficients                 4 (SMPTE 170M (BT.601))
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        1
+          bAlternateSetting       1
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      2 Video Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x82  EP 2 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x017a  1x 378 bytes
+            bInterval               1
+        Interface Association:
+          bLength                 8
+          bDescriptorType        11
+          bFirstInterface         2
+          bInterfaceCount         2
+          bFunctionClass         14 Video
+          bFunctionSubClass       3 Video Interface Collection
+          bFunctionProtocol       0
+          iFunction               2 MAX64380
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        2
+          bAlternateSetting       0
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      1 Video Control
+          bInterfaceProtocol      0
+          iInterface              2 MAX64380
+          VideoControl Interface Descriptor:
+            bLength                13
+            bDescriptorType        36
+            bDescriptorSubtype      1 (HEADER)
+            bcdUVC               1.10
+            wTotalLength       0x006f
+            dwClockFrequency        6.000000MHz
+            bInCollection           1
+            baInterfaceNr( 0)       3
+          VideoControl Interface Descriptor:
+            bLength                18
+            bDescriptorType        36
+            bDescriptorSubtype      2 (INPUT_TERMINAL)
+            bTerminalID             1
+            wTerminalType      0x0201 Camera Sensor
+            bAssocTerminal          0
+            iTerminal               0
+            wObjectiveFocalLengthMin      0
+            wObjectiveFocalLengthMax      0
+            wOcularFocalLength            0
+            bControlSize                  3
+            bmControls           0x00000800
+              PanTilt (Absolute)
+          VideoControl Interface Descriptor:
+            bLength                13
+            bDescriptorType        36
+            bDescriptorSubtype      5 (PROCESSING_UNIT)
+            bUnitID                 4
+            bSourceID               1
+            wMaxMultiplier        100
+            bControlSize            3
+            bmControls     0x0000463f
+              Brightness
+              Contrast
+              Hue
+              Saturation
+              Sharpness
+              Gamma
+              Gain
+              Power Line Frequency
+              Digital Multiplier
+            iProcessing             0
+            bmVideoStandards     0x02
+              NTSC - 525/60
+          VideoControl Interface Descriptor:
+            bLength                29
+            bDescriptorType        36
+            bDescriptorSubtype      6 (EXTENSION_UNIT)
+            bUnitID                 5
+            guidExtensionCode         {ba2b92d9-26f2-4294-42ae-e4eb4d68dd06}
+            bNumControls           14
+            bNrInPins               1
+            baSourceID( 0)          4
+            bControlSize            4
+            bmControls( 0)       0xff
+            bmControls( 1)       0x2f
+            bmControls( 2)       0x00
+            bmControls( 3)       0x00
+            iExtension              0
+          VideoControl Interface Descriptor:
+            bLength                29
+            bDescriptorType        36
+            bDescriptorSubtype      6 (EXTENSION_UNIT)
+            bUnitID                 6
+            guidExtensionCode         {df5dcd12-7d5f-4bba-bb6d-4b625add5272}
+            bNumControls           19
+            bNrInPins               1
+            baSourceID( 0)          4
+            bControlSize            4
+            bmControls( 0)       0xff
+            bmControls( 1)       0x87
+            bmControls( 2)       0x07
+            bmControls( 3)       0x00
+            iExtension              0
+          VideoControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      3 (OUTPUT_TERMINAL)
+            bTerminalID             2
+            wTerminalType      0x0101 USB Streaming
+            bAssocTerminal          0
+            bSourceID               5
+            iTerminal               0
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x85  EP 5 IN
+            bmAttributes            3
+              Transfer Type            Interrupt
+              Synch Type               None
+              Usage Type               Data
+            wMaxPacketSize     0x0008  1x 8 bytes
+            bInterval               9
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        3
+          bAlternateSetting       0
+          bNumEndpoints           0
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      2 Video Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          VideoStreaming Interface Descriptor:
+            bLength                            17
+            bDescriptorType                    36
+            bDescriptorSubtype                  1 (INPUT_HEADER)
+            bNumFormats                         4
+            wTotalLength                   0x028a
+            bEndpointAddress                 0x83  EP 3 IN
+            bmInfo                              0
+            bTerminalLink                       2
+            bStillCaptureMethod                 0
+            bTriggerSupport                     0
+            bTriggerUsage                       0
+            bControlSize                        1
+            bmaControls( 0)                     0
+            bmaControls( 1)                     4
+            bmaControls( 2)                     0
+            bmaControls( 3)                     0
+          VideoStreaming Interface Descriptor:
+            bLength                            27
+            bDescriptorType                    36
+            bDescriptorSubtype                  4 (FORMAT_UNCOMPRESSED)
+            bFormatIndex                        1
+            bNumFrameDescriptors                6
+            guidFormat                            {32595559-0000-0010-8000-00aa00389b71}
+            bBitsPerPixel                      16
+            bDefaultFrameIndex                  1
+            bAspectRatioX                       0
+            bAspectRatioY                       0
+            bmInterlaceFlags                 0x00
+              Interlaced stream or variable: No
+              Fields per frame: 2 fields
+              Field 1 first: No
+              Field pattern: Field 1 only
+            bCopyProtect                        0
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         1
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            160
+            wHeight                           120
+            dwMinBitRate                  3072000
+            dwMaxBitRate                  9216000
+            dwMaxVideoFrameBufferSize       38400
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         2
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            320
+            wHeight                           240
+            dwMinBitRate                 12288000
+            dwMaxBitRate                 36864000
+            dwMaxVideoFrameBufferSize      153600
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         3
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            432
+            wHeight                           240
+            dwMinBitRate                 16588800
+            dwMaxBitRate                 49766400
+            dwMaxVideoFrameBufferSize      207360
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         4
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            624
+            wHeight                           352
+            dwMinBitRate                 35143680
+            dwMaxBitRate                105431040
+            dwMaxVideoFrameBufferSize      439296
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         5
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            640
+            wHeight                           480
+            dwMinBitRate                 49152000
+            dwMaxBitRate                147456000
+            dwMaxVideoFrameBufferSize      614400
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            30
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         6
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                           1280
+            wHeight                           720
+            dwMinBitRate                 58982400
+            dwMaxBitRate                 58982400
+            dwMaxVideoFrameBufferSize     1843200
+            dwDefaultFrameInterval        2500000
+            bFrameIntervalType                  1
+            dwFrameInterval( 0)           2500000
+          VideoStreaming Interface Descriptor:
+            bLength                             6
+            bDescriptorType                    36
+            bDescriptorSubtype                 13 (COLORFORMAT)
+            bColorPrimaries                     1 (BT.709,sRGB)
+            bTransferCharacteristics            1 (BT.709)
+            bMatrixCoefficients                 4 (SMPTE 170M (BT.601))
+          VideoStreaming Interface Descriptor:
+            bLength                            11
+            bDescriptorType                    36
+            bDescriptorSubtype                  6 (FORMAT_MJPEG)
+            bFormatIndex                        2
+            bNumFrameDescriptors                6
+            bFlags                              0
+              Fixed-size samples: No
+            bDefaultFrameIndex                  1
+            bAspectRatioX                       0
+            bAspectRatioY                       0
+            bmInterlaceFlags                 0x00
+              Interlaced stream or variable: No
+              Fields per frame: 1 fields
+              Field 1 first: No
+              Field pattern: Field 1 only
+            bCopyProtect                        0
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         1
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            640
+            wHeight                           480
+            dwMinBitRate                  4194304
+            dwMaxBitRate                  5767168
+            dwMaxVideoFrameBufferSize       65536
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         2
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            624
+            wHeight                           352
+            dwMinBitRate                  4194304
+            dwMaxBitRate                  5767168
+            dwMaxVideoFrameBufferSize       65536
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         3
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            320
+            wHeight                           240
+            dwMinBitRate                  1048576
+            dwMaxBitRate                  1441792
+            dwMaxVideoFrameBufferSize       65536
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         4
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            432
+            wHeight                           240
+            dwMinBitRate                  1048576
+            dwMaxBitRate                  1441792
+            dwMaxVideoFrameBufferSize       65536
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         5
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                           1280
+            wHeight                           720
+            dwMinBitRate                  6291456
+            dwMaxBitRate                  8388608
+            dwMaxVideoFrameBufferSize       98304
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         6
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            960
+            wHeight                           720
+            dwMinBitRate                  6291456
+            dwMaxBitRate                  8388608
+            dwMaxVideoFrameBufferSize       98304
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                             6
+            bDescriptorType                    36
+            bDescriptorSubtype                 13 (COLORFORMAT)
+            bColorPrimaries                     1 (BT.709,sRGB)
+            bTransferCharacteristics            1 (BT.709)
+            bMatrixCoefficients                 4 (SMPTE 170M (BT.601))
+          VideoStreaming Interface Descriptor:
+            bLength                            23
+            bDescriptorType                    36
+            bDescriptorSubtype                 10 (FORMAT_MPEG2TS)
+            bFormatIndex                        3
+            bDataOffset                         0
+            bPacketLength                     188
+            bStrideLength                     188
+            guidStrideFormat                      {00000000-0000-0000-0000-000000000000}
+          VideoStreaming Interface Descriptor:
+            bLength                            28
+            bDescriptorType                    36
+            bDescriptorSubtype                 16 (FORMAT_FRAME_BASED)
+            bFormatIndex                        4
+            bNumFrameDescriptors                1
+            guidFormat                            {34363248-0000-0010-8000-00aa00389b71}
+            bBitsPerPixel                      12
+            bDefaultFrameIndex                  1
+            bAspectRatioX                      16
+            bAspectRatioY                       9
+            bmInterlaceFlags                 0x00
+              Interlaced stream or variable: No
+              Fields per frame: 2 fields
+              Field 1 first: No
+              Field pattern: Field 1 only
+            bCopyProtect                        0
+            bVariableSize                     1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                 17 (FRAME_FRAME_BASED)
+            bFrameIndex                         1
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                           1280
+            wHeight                           720
+            dwMinBitRate                     1000
+            dwMaxBitRate                 10000000
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwBytesPerLine                      0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                             6
+            bDescriptorType                    36
+            bDescriptorSubtype                 13 (COLORFORMAT)
+            bColorPrimaries                     1 (BT.709,sRGB)
+            bTransferCharacteristics            1 (BT.709)
+            bMatrixCoefficients                 4 (SMPTE 170M (BT.601))
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        3
+          bAlternateSetting       1
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      2 Video Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x83  EP 3 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x1400  3x 1024 bytes
+            bInterval               1
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        3
+          bAlternateSetting       2
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      2 Video Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x83  EP 3 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x0400  1x 1024 bytes
+            bInterval               1
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        3
+          bAlternateSetting       3
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      2 Video Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x83  EP 3 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x0200  1x 512 bytes
+            bInterval               1
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        3
+          bAlternateSetting       4
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      2 Video Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x83  EP 3 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x017a  1x 378 bytes
+            bInterval               1
+        Interface Association:
+          bLength                 8
+          bDescriptorType        11
+          bFirstInterface         4
+          bInterfaceCount         2
+          bFunctionClass          1 Audio
+          bFunctionSubClass       2 Streaming
+          bFunctionProtocol       0
+          iFunction               2 MAX64380
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        4
+          bAlternateSetting       0
+          bNumEndpoints           0
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      1 Control Device
+          bInterfaceProtocol      0
+          iInterface              0
+          AudioControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      1 (HEADER)
+            bcdADC               1.00
+            wTotalLength       0x0027
+            bInCollection           1
+            baInterfaceNr(0)        5
+          AudioControl Interface Descriptor:
+            bLength                12
+            bDescriptorType        36
+            bDescriptorSubtype      2 (INPUT_TERMINAL)
+            bTerminalID             1
+            wTerminalType      0x0201 Microphone
+            bAssocTerminal          0
+            bNrChannels             2
+            wChannelConfig     0x0003
+              Left Front (L)
+              Right Front (R)
+            iChannelNames           0
+            iTerminal               0
+          AudioControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      6 (FEATURE_UNIT)
+            bUnitID                 2
+            bSourceID               1
+            bControlSize            1
+            bmaControls(0)       0x01
+              Mute Control
+            bmaControls(1)       0x02
+              Volume Control
+            iFeature                0
+          AudioControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      3 (OUTPUT_TERMINAL)
+            bTerminalID             3
+            wTerminalType      0x0101 USB Streaming
+            bAssocTerminal          0
+            bSourceID               2
+            iTerminal               0
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        5
+          bAlternateSetting       0
+          bNumEndpoints           0
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      2 Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        5
+          bAlternateSetting       1
+          bNumEndpoints           1
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      2 Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          AudioStreaming Interface Descriptor:
+            bLength                 7
+            bDescriptorType        36
+            bDescriptorSubtype      1 (AS_GENERAL)
+            bTerminalLink           3
+            bDelay                  1 frames
+            wFormatTag         0x0001 PCM
+          AudioStreaming Interface Descriptor:
+            bLength                11
+            bDescriptorType        36
+            bDescriptorSubtype      2 (FORMAT_TYPE)
+            bFormatType             1 (FORMAT_TYPE_I)
+            bNrChannels             2
+            bSubframeSize           2
+            bBitResolution         16
+            bSamFreqType            1 Discrete
+            tSamFreq[ 0]         8000
+          Endpoint Descriptor:
+            bLength                 9
+            bDescriptorType         5
+            bEndpointAddress     0x81  EP 1 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x00c0  1x 192 bytes
+            bInterval               4
+            bRefresh                0
+            bSynchAddress           0
+            AudioStreaming Endpoint Descriptor:
+              bLength                 7
+              bDescriptorType        37
+              bDescriptorSubtype      1 (EP_GENERAL)
+              bmAttributes         0x00
+              bLockDelayUnits         0 Undefined
+              wLockDelay         0x0000
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        5
+          bAlternateSetting       2
+          bNumEndpoints           1
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      2 Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          AudioStreaming Interface Descriptor:
+            bLength                 7
+            bDescriptorType        36
+            bDescriptorSubtype      1 (AS_GENERAL)
+            bTerminalLink           3
+            bDelay                  1 frames
+            wFormatTag         0x0001 PCM
+          AudioStreaming Interface Descriptor:
+            bLength                11
+            bDescriptorType        36
+            bDescriptorSubtype      2 (FORMAT_TYPE)
+            bFormatType             1 (FORMAT_TYPE_I)
+            bNrChannels             2
+            bSubframeSize           2
+            bBitResolution         16
+            bSamFreqType            1 Discrete
+            tSamFreq[ 0]        16000
+          Endpoint Descriptor:
+            bLength                 9
+            bDescriptorType         5
+            bEndpointAddress     0x81  EP 1 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x00c0  1x 192 bytes
+            bInterval               4
+            bRefresh                0
+            bSynchAddress           0
+            AudioStreaming Endpoint Descriptor:
+              bLength                 7
+              bDescriptorType        37
+              bDescriptorSubtype      1 (EP_GENERAL)
+              bmAttributes         0x00
+              bLockDelayUnits         0 Undefined
+              wLockDelay         0x0000
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        5
+          bAlternateSetting       3
+          bNumEndpoints           1
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      2 Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          AudioStreaming Interface Descriptor:
+            bLength                 7
+            bDescriptorType        36
+            bDescriptorSubtype      1 (AS_GENERAL)
+            bTerminalLink           3
+            bDelay                  1 frames
+            wFormatTag         0x0001 PCM
+          AudioStreaming Interface Descriptor:
+            bLength                11
+            bDescriptorType        36
+            bDescriptorSubtype      2 (FORMAT_TYPE)
+            bFormatType             1 (FORMAT_TYPE_I)
+            bNrChannels             2
+            bSubframeSize           2
+            bBitResolution         16
+            bSamFreqType            1 Discrete
+            tSamFreq[ 0]        24000
+          Endpoint Descriptor:
+            bLength                 9
+            bDescriptorType         5
+            bEndpointAddress     0x81  EP 1 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x00c0  1x 192 bytes
+            bInterval               4
+            bRefresh                0
+            bSynchAddress           0
+            AudioStreaming Endpoint Descriptor:
+              bLength                 7
+              bDescriptorType        37
+              bDescriptorSubtype      1 (EP_GENERAL)
+              bmAttributes         0x00
+              bLockDelayUnits         0 Undefined
+              wLockDelay         0x0000
+      Configuration Descriptor:
+        bLength                 9
+        bDescriptorType         2
+        wTotalLength       0x04fb
+        bNumInterfaces          6
+        bConfigurationValue     2
+        iConfiguration          0
+        bmAttributes         0x80
+          (Bus Powered)
+        MaxPower              400mA
+        Interface Association:
+          bLength                 8
+          bDescriptorType        11
+          bFirstInterface         0
+          bInterfaceCount         2
+          bFunctionClass         14 Video
+          bFunctionSubClass       3 Video Interface Collection
+          bFunctionProtocol       0
+          iFunction               2 MAX64380
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        0
+          bAlternateSetting       0
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      1 Video Control
+          bInterfaceProtocol      0
+          iInterface              2 MAX64380
+          VideoControl Interface Descriptor:
+            bLength                13
+            bDescriptorType        36
+            bDescriptorSubtype      1 (HEADER)
+            bcdUVC               1.10
+            wTotalLength       0x006f
+            dwClockFrequency        6.000000MHz
+            bInCollection           1
+            baInterfaceNr( 0)       1
+          VideoControl Interface Descriptor:
+            bLength                18
+            bDescriptorType        36
+            bDescriptorSubtype      2 (INPUT_TERMINAL)
+            bTerminalID             1
+            wTerminalType      0x0201 Camera Sensor
+            bAssocTerminal          0
+            iTerminal               0
+            wObjectiveFocalLengthMin      0
+            wObjectiveFocalLengthMax      0
+            wOcularFocalLength            0
+            bControlSize                  3
+            bmControls           0x00000800
+              PanTilt (Absolute)
+          VideoControl Interface Descriptor:
+            bLength                13
+            bDescriptorType        36
+            bDescriptorSubtype      5 (PROCESSING_UNIT)
+            bUnitID                 4
+            bSourceID               1
+            wMaxMultiplier        100
+            bControlSize            3
+            bmControls     0x0000463f
+              Brightness
+              Contrast
+              Hue
+              Saturation
+              Sharpness
+              Gamma
+              Gain
+              Power Line Frequency
+              Digital Multiplier
+            iProcessing             0
+            bmVideoStandards     0x02
+              NTSC - 525/60
+          VideoControl Interface Descriptor:
+            bLength                29
+            bDescriptorType        36
+            bDescriptorSubtype      6 (EXTENSION_UNIT)
+            bUnitID                 5
+            guidExtensionCode         {ba2b92d9-26f2-4294-42ae-e4eb4d68dd06}
+            bNumControls           14
+            bNrInPins               1
+            baSourceID( 0)          4
+            bControlSize            4
+            bmControls( 0)       0xff
+            bmControls( 1)       0x3f
+            bmControls( 2)       0x00
+            bmControls( 3)       0x00
+            iExtension              0
+          VideoControl Interface Descriptor:
+            bLength                29
+            bDescriptorType        36
+            bDescriptorSubtype      6 (EXTENSION_UNIT)
+            bUnitID                 6
+            guidExtensionCode         {df5dcd12-7d5f-4bba-bb6d-4b625add5272}
+            bNumControls           19
+            bNrInPins               1
+            baSourceID( 0)          4
+            bControlSize            4
+            bmControls( 0)       0xff
+            bmControls( 1)       0x87
+            bmControls( 2)       0x07
+            bmControls( 3)       0x00
+            iExtension              0
+          VideoControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      3 (OUTPUT_TERMINAL)
+            bTerminalID             2
+            wTerminalType      0x0101 USB Streaming
+            bAssocTerminal          0
+            bSourceID               5
+            iTerminal               0
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x84  EP 4 IN
+            bmAttributes            3
+              Transfer Type            Interrupt
+              Synch Type               None
+              Usage Type               Data
+            wMaxPacketSize     0x0010  1x 16 bytes
+            bInterval               9
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        1
+          bAlternateSetting       0
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      2 Video Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          VideoStreaming Interface Descriptor:
+            bLength                            15
+            bDescriptorType                    36
+            bDescriptorSubtype                  1 (INPUT_HEADER)
+            bNumFormats                         2
+            wTotalLength                   0x006e
+            bEndpointAddress                 0x82  EP 2 IN
+            bmInfo                              0
+            bTerminalLink                       2
+            bStillCaptureMethod                 0
+            bTriggerSupport                     0
+            bTriggerUsage                       0
+            bControlSize                        1
+            bmaControls( 0)                     0
+            bmaControls( 1)                     0
+          VideoStreaming Interface Descriptor:
+            bLength                            23
+            bDescriptorType                    36
+            bDescriptorSubtype                 10 (FORMAT_MPEG2TS)
+            bFormatIndex                        1
+            bDataOffset                         0
+            bPacketLength                     188
+            bStrideLength                     188
+            guidStrideFormat                      {00000000-0000-0000-0000-000000000000}
+          VideoStreaming Interface Descriptor:
+            bLength                            28
+            bDescriptorType                    36
+            bDescriptorSubtype                 16 (FORMAT_FRAME_BASED)
+            bFormatIndex                        2
+            bNumFrameDescriptors                1
+            guidFormat                            {34363248-0000-0010-8000-00aa00389b71}
+            bBitsPerPixel                      12
+            bDefaultFrameIndex                  1
+            bAspectRatioX                      16
+            bAspectRatioY                       9
+            bmInterlaceFlags                 0x00
+              Interlaced stream or variable: No
+              Fields per frame: 2 fields
+              Field 1 first: No
+              Field pattern: Field 1 only
+            bCopyProtect                        0
+            bVariableSize                     1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                 17 (FRAME_FRAME_BASED)
+            bFrameIndex                         1
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                           1280
+            wHeight                           720
+            dwMinBitRate                     1000
+            dwMaxBitRate                 10000000
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwBytesPerLine                      0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                             6
+            bDescriptorType                    36
+            bDescriptorSubtype                 13 (COLORFORMAT)
+            bColorPrimaries                     1 (BT.709,sRGB)
+            bTransferCharacteristics            1 (BT.709)
+            bMatrixCoefficients                 4 (SMPTE 170M (BT.601))
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x82  EP 2 IN
+            bmAttributes            2
+              Transfer Type            Bulk
+              Synch Type               None
+              Usage Type               Data
+            wMaxPacketSize     0x0200  1x 512 bytes
+            bInterval               0
+        Interface Association:
+          bLength                 8
+          bDescriptorType        11
+          bFirstInterface         2
+          bInterfaceCount         2
+          bFunctionClass         14 Video
+          bFunctionSubClass       3 Video Interface Collection
+          bFunctionProtocol       0
+          iFunction               2 MAX64380
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        2
+          bAlternateSetting       0
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      1 Video Control
+          bInterfaceProtocol      0
+          iInterface              2 MAX64380
+          VideoControl Interface Descriptor:
+            bLength                13
+            bDescriptorType        36
+            bDescriptorSubtype      1 (HEADER)
+            bcdUVC               1.10
+            wTotalLength       0x006f
+            dwClockFrequency        6.000000MHz
+            bInCollection           1
+            baInterfaceNr( 0)       3
+          VideoControl Interface Descriptor:
+            bLength                18
+            bDescriptorType        36
+            bDescriptorSubtype      2 (INPUT_TERMINAL)
+            bTerminalID             1
+            wTerminalType      0x0201 Camera Sensor
+            bAssocTerminal          0
+            iTerminal               0
+            wObjectiveFocalLengthMin      0
+            wObjectiveFocalLengthMax      0
+            wOcularFocalLength            0
+            bControlSize                  3
+            bmControls           0x00000800
+              PanTilt (Absolute)
+          VideoControl Interface Descriptor:
+            bLength                13
+            bDescriptorType        36
+            bDescriptorSubtype      5 (PROCESSING_UNIT)
+            bUnitID                 4
+            bSourceID               1
+            wMaxMultiplier        100
+            bControlSize            3
+            bmControls     0x0000463f
+              Brightness
+              Contrast
+              Hue
+              Saturation
+              Sharpness
+              Gamma
+              Gain
+              Power Line Frequency
+              Digital Multiplier
+            iProcessing             0
+            bmVideoStandards     0x02
+              NTSC - 525/60
+          VideoControl Interface Descriptor:
+            bLength                29
+            bDescriptorType        36
+            bDescriptorSubtype      6 (EXTENSION_UNIT)
+            bUnitID                 5
+            guidExtensionCode         {ba2b92d9-26f2-4294-42ae-e4eb4d68dd06}
+            bNumControls           14
+            bNrInPins               1
+            baSourceID( 0)          4
+            bControlSize            4
+            bmControls( 0)       0xff
+            bmControls( 1)       0x2f
+            bmControls( 2)       0x00
+            bmControls( 3)       0x00
+            iExtension              0
+          VideoControl Interface Descriptor:
+            bLength                29
+            bDescriptorType        36
+            bDescriptorSubtype      6 (EXTENSION_UNIT)
+            bUnitID                 6
+            guidExtensionCode         {df5dcd12-7d5f-4bba-bb6d-4b625add5272}
+            bNumControls           19
+            bNrInPins               1
+            baSourceID( 0)          4
+            bControlSize            4
+            bmControls( 0)       0xff
+            bmControls( 1)       0x87
+            bmControls( 2)       0x07
+            bmControls( 3)       0x00
+            iExtension              0
+          VideoControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      3 (OUTPUT_TERMINAL)
+            bTerminalID             2
+            wTerminalType      0x0101 USB Streaming
+            bAssocTerminal          0
+            bSourceID               5
+            iTerminal               0
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x85  EP 5 IN
+            bmAttributes            3
+              Transfer Type            Interrupt
+              Synch Type               None
+              Usage Type               Data
+            wMaxPacketSize     0x0008  1x 8 bytes
+            bInterval               9
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        3
+          bAlternateSetting       0
+          bNumEndpoints           1
+          bInterfaceClass        14 Video
+          bInterfaceSubClass      2 Video Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          VideoStreaming Interface Descriptor:
+            bLength                            17
+            bDescriptorType                    36
+            bDescriptorSubtype                  1 (INPUT_HEADER)
+            bNumFormats                         4
+            wTotalLength                   0x028a
+            bEndpointAddress                 0x83  EP 3 IN
+            bmInfo                              0
+            bTerminalLink                       2
+            bStillCaptureMethod                 0
+            bTriggerSupport                     0
+            bTriggerUsage                       0
+            bControlSize                        1
+            bmaControls( 0)                     0
+            bmaControls( 1)                     4
+            bmaControls( 2)                     0
+            bmaControls( 3)                     0
+          VideoStreaming Interface Descriptor:
+            bLength                            27
+            bDescriptorType                    36
+            bDescriptorSubtype                  4 (FORMAT_UNCOMPRESSED)
+            bFormatIndex                        1
+            bNumFrameDescriptors                6
+            guidFormat                            {32595559-0000-0010-8000-00aa00389b71}
+            bBitsPerPixel                      16
+            bDefaultFrameIndex                  1
+            bAspectRatioX                       0
+            bAspectRatioY                       0
+            bmInterlaceFlags                 0x00
+              Interlaced stream or variable: No
+              Fields per frame: 2 fields
+              Field 1 first: No
+              Field pattern: Field 1 only
+            bCopyProtect                        0
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         1
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            160
+            wHeight                           120
+            dwMinBitRate                  3072000
+            dwMaxBitRate                  9216000
+            dwMaxVideoFrameBufferSize       38400
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         2
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            320
+            wHeight                           240
+            dwMinBitRate                 12288000
+            dwMaxBitRate                 36864000
+            dwMaxVideoFrameBufferSize      153600
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         3
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            432
+            wHeight                           240
+            dwMinBitRate                 16588800
+            dwMaxBitRate                 49766400
+            dwMaxVideoFrameBufferSize      207360
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         4
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            624
+            wHeight                           352
+            dwMinBitRate                 35143680
+            dwMaxBitRate                105431040
+            dwMaxVideoFrameBufferSize      439296
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            46
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         5
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            640
+            wHeight                           480
+            dwMinBitRate                 49152000
+            dwMaxBitRate                147456000
+            dwMaxVideoFrameBufferSize      614400
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  5
+            dwFrameInterval( 0)            333333
+            dwFrameInterval( 1)            400000
+            dwFrameInterval( 2)            500000
+            dwFrameInterval( 3)            666666
+            dwFrameInterval( 4)           1000000
+          VideoStreaming Interface Descriptor:
+            bLength                            30
+            bDescriptorType                    36
+            bDescriptorSubtype                  5 (FRAME_UNCOMPRESSED)
+            bFrameIndex                         6
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                           1280
+            wHeight                           720
+            dwMinBitRate                 58982400
+            dwMaxBitRate                 58982400
+            dwMaxVideoFrameBufferSize     1843200
+            dwDefaultFrameInterval        2500000
+            bFrameIntervalType                  1
+            dwFrameInterval( 0)           2500000
+          VideoStreaming Interface Descriptor:
+            bLength                             6
+            bDescriptorType                    36
+            bDescriptorSubtype                 13 (COLORFORMAT)
+            bColorPrimaries                     1 (BT.709,sRGB)
+            bTransferCharacteristics            1 (BT.709)
+            bMatrixCoefficients                 4 (SMPTE 170M (BT.601))
+          VideoStreaming Interface Descriptor:
+            bLength                            11
+            bDescriptorType                    36
+            bDescriptorSubtype                  6 (FORMAT_MJPEG)
+            bFormatIndex                        2
+            bNumFrameDescriptors                6
+            bFlags                              0
+              Fixed-size samples: No
+            bDefaultFrameIndex                  1
+            bAspectRatioX                       0
+            bAspectRatioY                       0
+            bmInterlaceFlags                 0x00
+              Interlaced stream or variable: No
+              Fields per frame: 1 fields
+              Field 1 first: No
+              Field pattern: Field 1 only
+            bCopyProtect                        0
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         1
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            640
+            wHeight                           480
+            dwMinBitRate                  4194304
+            dwMaxBitRate                  5767168
+            dwMaxVideoFrameBufferSize       65536
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         2
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            624
+            wHeight                           352
+            dwMinBitRate                  4194304
+            dwMaxBitRate                  5767168
+            dwMaxVideoFrameBufferSize       65536
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         3
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            320
+            wHeight                           240
+            dwMinBitRate                  1048576
+            dwMaxBitRate                  1441792
+            dwMaxVideoFrameBufferSize       65536
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         4
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            432
+            wHeight                           240
+            dwMinBitRate                  1048576
+            dwMaxBitRate                  1441792
+            dwMaxVideoFrameBufferSize       65536
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         5
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                           1280
+            wHeight                           720
+            dwMinBitRate                  6291456
+            dwMaxBitRate                  8388608
+            dwMaxVideoFrameBufferSize       98304
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                  7 (FRAME_MJPEG)
+            bFrameIndex                         6
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                            960
+            wHeight                           720
+            dwMinBitRate                  6291456
+            dwMaxBitRate                  8388608
+            dwMaxVideoFrameBufferSize       98304
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                             6
+            bDescriptorType                    36
+            bDescriptorSubtype                 13 (COLORFORMAT)
+            bColorPrimaries                     1 (BT.709,sRGB)
+            bTransferCharacteristics            1 (BT.709)
+            bMatrixCoefficients                 4 (SMPTE 170M (BT.601))
+          VideoStreaming Interface Descriptor:
+            bLength                            23
+            bDescriptorType                    36
+            bDescriptorSubtype                 10 (FORMAT_MPEG2TS)
+            bFormatIndex                        3
+            bDataOffset                         0
+            bPacketLength                     188
+            bStrideLength                     188
+            guidStrideFormat                      {00000000-0000-0000-0000-000000000000}
+          VideoStreaming Interface Descriptor:
+            bLength                            28
+            bDescriptorType                    36
+            bDescriptorSubtype                 16 (FORMAT_FRAME_BASED)
+            bFormatIndex                        4
+            bNumFrameDescriptors                1
+            guidFormat                            {34363248-0000-0010-8000-00aa00389b71}
+            bBitsPerPixel                      12
+            bDefaultFrameIndex                  1
+            bAspectRatioX                      16
+            bAspectRatioY                       9
+            bmInterlaceFlags                 0x00
+              Interlaced stream or variable: No
+              Fields per frame: 2 fields
+              Field 1 first: No
+              Field pattern: Field 1 only
+            bCopyProtect                        0
+            bVariableSize                     1
+          VideoStreaming Interface Descriptor:
+            bLength                            38
+            bDescriptorType                    36
+            bDescriptorSubtype                 17 (FRAME_FRAME_BASED)
+            bFrameIndex                         1
+            bmCapabilities                   0x00
+              Still image unsupported
+            wWidth                           1280
+            wHeight                           720
+            dwMinBitRate                     1000
+            dwMaxBitRate                 10000000
+            dwDefaultFrameInterval         333333
+            bFrameIntervalType                  0
+            dwBytesPerLine                      0
+            dwMinFrameInterval             333333
+            dwMaxFrameInterval           10000000
+            dwFrameIntervalStep                 1
+          VideoStreaming Interface Descriptor:
+            bLength                             6
+            bDescriptorType                    36
+            bDescriptorSubtype                 13 (COLORFORMAT)
+            bColorPrimaries                     1 (BT.709,sRGB)
+            bTransferCharacteristics            1 (BT.709)
+            bMatrixCoefficients                 4 (SMPTE 170M (BT.601))
+          Endpoint Descriptor:
+            bLength                 7
+            bDescriptorType         5
+            bEndpointAddress     0x83  EP 3 IN
+            bmAttributes            2
+              Transfer Type            Bulk
+              Synch Type               None
+              Usage Type               Data
+            wMaxPacketSize     0x0200  1x 512 bytes
+            bInterval               0
+        Interface Association:
+          bLength                 8
+          bDescriptorType        11
+          bFirstInterface         4
+          bInterfaceCount         2
+          bFunctionClass          1 Audio
+          bFunctionSubClass       2 Streaming
+          bFunctionProtocol       0
+          iFunction               2 MAX64380
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        4
+          bAlternateSetting       0
+          bNumEndpoints           0
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      1 Control Device
+          bInterfaceProtocol      0
+          iInterface              0
+          AudioControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      1 (HEADER)
+            bcdADC               1.00
+            wTotalLength       0x0027
+            bInCollection           1
+            baInterfaceNr(0)        5
+          AudioControl Interface Descriptor:
+            bLength                12
+            bDescriptorType        36
+            bDescriptorSubtype      2 (INPUT_TERMINAL)
+            bTerminalID             1
+            wTerminalType      0x0201 Microphone
+            bAssocTerminal          0
+            bNrChannels             2
+            wChannelConfig     0x0003
+              Left Front (L)
+              Right Front (R)
+            iChannelNames           0
+            iTerminal               0
+          AudioControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      6 (FEATURE_UNIT)
+            bUnitID                 2
+            bSourceID               1
+            bControlSize            1
+            bmaControls(0)       0x01
+              Mute Control
+            bmaControls(1)       0x02
+              Volume Control
+            iFeature                0
+          AudioControl Interface Descriptor:
+            bLength                 9
+            bDescriptorType        36
+            bDescriptorSubtype      3 (OUTPUT_TERMINAL)
+            bTerminalID             3
+            wTerminalType      0x0101 USB Streaming
+            bAssocTerminal          0
+            bSourceID               2
+            iTerminal               0
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        5
+          bAlternateSetting       0
+          bNumEndpoints           0
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      2 Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        5
+          bAlternateSetting       1
+          bNumEndpoints           1
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      2 Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          AudioStreaming Interface Descriptor:
+            bLength                 7
+            bDescriptorType        36
+            bDescriptorSubtype      1 (AS_GENERAL)
+            bTerminalLink           3
+            bDelay                  1 frames
+            wFormatTag         0x0001 PCM
+          AudioStreaming Interface Descriptor:
+            bLength                11
+            bDescriptorType        36
+            bDescriptorSubtype      2 (FORMAT_TYPE)
+            bFormatType             1 (FORMAT_TYPE_I)
+            bNrChannels             2
+            bSubframeSize           2
+            bBitResolution         16
+            bSamFreqType            1 Discrete
+            tSamFreq[ 0]         8000
+          Endpoint Descriptor:
+            bLength                 9
+            bDescriptorType         5
+            bEndpointAddress     0x81  EP 1 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x00c0  1x 192 bytes
+            bInterval               4
+            bRefresh                0
+            bSynchAddress           0
+            AudioStreaming Endpoint Descriptor:
+              bLength                 7
+              bDescriptorType        37
+              bDescriptorSubtype      1 (EP_GENERAL)
+              bmAttributes         0x00
+              bLockDelayUnits         0 Undefined
+              wLockDelay         0x0000
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        5
+          bAlternateSetting       2
+          bNumEndpoints           1
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      2 Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          AudioStreaming Interface Descriptor:
+            bLength                 7
+            bDescriptorType        36
+            bDescriptorSubtype      1 (AS_GENERAL)
+            bTerminalLink           3
+            bDelay                  1 frames
+            wFormatTag         0x0001 PCM
+          AudioStreaming Interface Descriptor:
+            bLength                11
+            bDescriptorType        36
+            bDescriptorSubtype      2 (FORMAT_TYPE)
+            bFormatType             1 (FORMAT_TYPE_I)
+            bNrChannels             2
+            bSubframeSize           2
+            bBitResolution         16
+            bSamFreqType            1 Discrete
+            tSamFreq[ 0]        16000
+          Endpoint Descriptor:
+            bLength                 9
+            bDescriptorType         5
+            bEndpointAddress     0x81  EP 1 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x00c0  1x 192 bytes
+            bInterval               4
+            bRefresh                0
+            bSynchAddress           0
+            AudioStreaming Endpoint Descriptor:
+              bLength                 7
+              bDescriptorType        37
+              bDescriptorSubtype      1 (EP_GENERAL)
+              bmAttributes         0x00
+              bLockDelayUnits         0 Undefined
+              wLockDelay         0x0000
+        Interface Descriptor:
+          bLength                 9
+          bDescriptorType         4
+          bInterfaceNumber        5
+          bAlternateSetting       3
+          bNumEndpoints           1
+          bInterfaceClass         1 Audio
+          bInterfaceSubClass      2 Streaming
+          bInterfaceProtocol      0
+          iInterface              0
+          AudioStreaming Interface Descriptor:
+            bLength                 7
+            bDescriptorType        36
+            bDescriptorSubtype      1 (AS_GENERAL)
+            bTerminalLink           3
+            bDelay                  1 frames
+            wFormatTag         0x0001 PCM
+          AudioStreaming Interface Descriptor:
+            bLength                11
+            bDescriptorType        36
+            bDescriptorSubtype      2 (FORMAT_TYPE)
+            bFormatType             1 (FORMAT_TYPE_I)
+            bNrChannels             2
+            bSubframeSize           2
+            bBitResolution         16
+            bSamFreqType            1 Discrete
+            tSamFreq[ 0]        24000
+          Endpoint Descriptor:
+            bLength                 9
+            bDescriptorType         5
+            bEndpointAddress     0x81  EP 1 IN
+            bmAttributes            5
+              Transfer Type            Isochronous
+              Synch Type               Asynchronous
+              Usage Type               Data
+            wMaxPacketSize     0x00c0  1x 192 bytes
+            bInterval               4
+            bRefresh                0
+            bSynchAddress           0
+            AudioStreaming Endpoint Descriptor:
+              bLength                 7
+              bDescriptorType        37
+              bDescriptorSubtype      1 (EP_GENERAL)
+              bmAttributes         0x00
+              bLockDelayUnits         0 Undefined
+              wLockDelay         0x0000
+    Device Qualifier (for other device speed):
+      bLength                10
+      bDescriptorType         6
+      bcdUSB               2.00
+      bDeviceClass          239 Miscellaneous Device
+      bDeviceSubClass         2
+      bDeviceProtocol         1 Interface Association
+      bMaxPacketSize0        64
+      bNumConfigurations      2
+    Device Status:     0x0000
+      (Bus Powered)
+
 ### VG-STC3000
  * 1280x720/30fps
  * Alpha Imaging Tech. AIT8453 (firmware begins with "AIT842SF" string)
