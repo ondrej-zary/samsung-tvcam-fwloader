@@ -14,26 +14,30 @@
 #define DIR_IN		0
 #define DIR_OUT		1
 
-#define IDX		0x600
+#define AIT_IDX		0x600
 
-#define CMD_UPLOAD	0x03
-#define CMD_FW		0x04
+#define AIT_CMD_UPLOAD	0x03
+#define AIT_CMD_FW	0x04
 
-#define FW_CHUNK_SIZE	32
+#define AIT_FW_CHUNK_SIZE	32
 
 #define FW_DIR		"/lib/firmware/samsung-tvcam/"
+
+enum cam_type { CAM_AIT, CAM_MAX };
 
 struct camera {
 	char *name;
 	uint16_t vendor;
 	uint16_t product;
+	enum cam_type type;
 	char *firmware;
 };
 
 static const struct camera cameras[] = {
-	{ .name = "VG-STC3000", .vendor = 0x04e8, .product = 0x205c, .firmware = "FalconFW.bin" },
-	{ .name = "VG-STC4000", .vendor = 0x04e8, .product = 0x2061, .firmware = "FalconPlus_FW.bin" },
-	{ .name = "VG-STC5000", .vendor = 0x04e8, .product = 0x2065, .firmware = "Heron_Ext_FW.bin" },
+	{ .name = "VG-STC2000", .vendor = 0x04e8, .product = 0x2059, .type = CAM_MAX, .firmware = "raptor_firmware.img" },
+	{ .name = "VG-STC3000", .vendor = 0x04e8, .product = 0x205c, .type = CAM_AIT, .firmware = "FalconFW.bin" },
+	{ .name = "VG-STC4000", .vendor = 0x04e8, .product = 0x2061, .type = CAM_AIT, .firmware = "FalconPlus_FW.bin" },
+	{ .name = "VG-STC5000", .vendor = 0x04e8, .product = 0x2065, .type = CAM_AIT, .firmware = "Heron_Ext_FW.bin" },
 	{ }
 };
 
@@ -46,12 +50,75 @@ static int ait_cmd(libusb_device_handle *handle, uint8_t *data, uint16_t val, ui
 		req_type |= LIBUSB_ENDPOINT_IN;
 	}
 
-	return libusb_control_transfer(handle, req_type, req, val << 8, IDX, data, len, TIMEOUT);
+	return libusb_control_transfer(handle, req_type, req, val << 8, AIT_IDX, data, len, TIMEOUT);
 }
 
-static bool ait_upload_fw_uvc(libusb_device_handle *handle, char *filename) {
-	int ret = false;
+static bool ait_upload_fw_uvc(libusb_device_handle *handle, FILE *f) {
+	/* start firmware upload */
+	uint8_t cmd[8] = { 0x01, 0x00, 0x03 };
+	int cnt = ait_cmd(handle, cmd, AIT_CMD_FW, sizeof(cmd), DIR_OUT);
+	if (cnt < 0) {
+		fprintf(stderr, "Error sending FW load command: %s\n", libusb_strerror(cnt));
+		return false;
+	}
+	/* upload firmware in chunks */
+	while (!feof(f)) {
+		uint8_t buf[AIT_FW_CHUNK_SIZE];
+		memset(buf, 0, sizeof(buf));
+		cnt = fread(buf, 1, AIT_FW_CHUNK_SIZE, f);
+		if (cnt < AIT_FW_CHUNK_SIZE && ferror(f)) {
+			fprintf(stderr, "Error reading firmware file: %s\n", strerror(errno));
+			return false;
+		}
+		cnt = ait_cmd(handle, buf, AIT_CMD_UPLOAD, AIT_FW_CHUNK_SIZE, DIR_OUT);
+		if (cnt < 0) {
+			fprintf(stderr, "Error uploading FW: %s\n", libusb_strerror(cnt));
+			return false;
+		}
+	}
+	/* boot uploaded firmware */
+	cmd[1] = 0x01;
+	cnt = ait_cmd(handle, cmd, AIT_CMD_FW, sizeof(cmd), DIR_OUT);
+	if (cnt < 0) {
+		fprintf(stderr, "Error sending FW boot command: %s\n", libusb_strerror(cnt));
+		return false;
+	}
 
+	return true;
+}
+
+#define MAX_REQ_FW	0xde
+
+#define MAX_FW_CHUNK_SIZE	4088
+
+static bool max_upload_fw(libusb_device_handle *handle, FILE *f) {
+	uint8_t req_type = LIBUSB_REQUEST_TYPE_VENDOR | LIBUSB_RECIPIENT_INTERFACE;
+
+	/* start firmware upload */
+	if (libusb_control_transfer(handle, req_type, MAX_REQ_FW - 1, 0, 0, 0, 0, 0) < 0)
+		return false;
+
+	/* upload firmware in chunks */
+	int i = 0;
+	while (!feof(f)) {
+		uint8_t buf[MAX_FW_CHUNK_SIZE];
+		memset(buf, 0, sizeof(buf));
+		int cnt = fread(buf, 1, MAX_FW_CHUNK_SIZE, f);
+		if (cnt < MAX_FW_CHUNK_SIZE && ferror(f)) {
+			fprintf(stderr, "Error reading firmware file: %s\n", strerror(errno));
+			return false;
+		}
+		if (libusb_control_transfer(handle, req_type, MAX_REQ_FW, i >> 16, i & 0xffff, buf, MAX_FW_CHUNK_SIZE, 0) != MAX_FW_CHUNK_SIZE) {
+			fprintf(stderr, "Error uploading FW: %s\n", libusb_strerror(cnt));
+			return false;
+		}
+		i++;
+	}
+
+	return true;
+}
+
+static bool upload_fw(libusb_device_handle *handle, const char *filename, enum cam_type type) {
 	/* chdir to FW_DIR only if filename is not absolute or relative to current directory */
 	if (!filename || (filename[0] != '/' && filename[0] != '.' && chdir(FW_DIR))) {
 		fprintf(stderr, "Error accessing firmware directory %s: %s\n", FW_DIR, strerror(errno));
@@ -63,39 +130,15 @@ static bool ait_upload_fw_uvc(libusb_device_handle *handle, char *filename) {
 		fprintf(stderr, "Error opening firmware file %s%s: %s\n", (filename[0] != '/' && filename[0] != '.') ? FW_DIR : "" , filename, strerror(errno));
 		return false;
 	}
-	/* start firmware upload */
-	uint8_t cmd[8] = { 0x01, 0x00, 0x03 };
-	int cnt = ait_cmd(handle, cmd, CMD_FW, sizeof(cmd), DIR_OUT);
-	if (cnt < 0) {
-		fprintf(stderr, "Error sending FW load command: %s\n", libusb_strerror(cnt));
-		goto err;
-	}
-	/* upload firmware in chunks */
-	while (!feof(f)) {
-		uint8_t buf[FW_CHUNK_SIZE];
-		memset(buf, 0, sizeof(buf));
-		cnt = fread(buf, 1, FW_CHUNK_SIZE, f);
-		if (cnt < FW_CHUNK_SIZE && ferror(f)) {
-			fprintf(stderr, "Error reading firmware file: %s\n", strerror(errno));
-			goto err;
-		}
-		cnt = ait_cmd(handle, buf, CMD_UPLOAD, FW_CHUNK_SIZE, DIR_OUT);
-		if (cnt < 0) {
-			fprintf(stderr, "Error uploading FW: %s\n", libusb_strerror(cnt));
-			goto err;
-		}
-	}
-	/* boot uploaded firmware */
-	cmd[1] = 0x01;
-	cnt = ait_cmd(handle, cmd, CMD_FW, sizeof(cmd), DIR_OUT);
-	if (cnt < 0) {
-		fprintf(stderr, "Error sending FW boot command: %s\n", libusb_strerror(cnt));
-		goto err;
-	}
-	ret = true;
 
-err:
+	bool ret;
+	if (type == CAM_MAX)
+		ret = max_upload_fw(handle, f);
+	else
+		ret = ait_upload_fw_uvc(handle, f);
+
 	fclose(f);
+
 	return ret;
 }
 
@@ -112,21 +155,22 @@ static const struct camera *find_camera(uint16_t vendor, uint16_t product) {
 static int usage(char *argv[]) {
 	fprintf(stderr, "Usage: \n");
 	fprintf(stderr, " %s -a\n", argv[0]);
-	fprintf(stderr, " %s -d device_path -f firmware.bin\n", argv[0]);
-	fprintf(stderr, "\nLoad firmware to Samsung VG-STC3000, VG-STC4000 or VG-STC5000 TV camera.\n");
+	fprintf(stderr, " %s -d device_path -t type -f firmware.bin\n", argv[0]);
+	fprintf(stderr, "\nLoad firmware to Samsung VG-STC2000, VG-STC3000, VG-STC4000 or VG-STC5000 TV camera.\n");
 	fprintf(stderr, "Options:\n");
 	fprintf(stderr, "  -a\tautomatically load firmware to all supported Samsung TV cameras\n");
 	fprintf(stderr, "  -d\tUSB device path (/dev/bus/usb/xxx/yyy)\n");
+	fprintf(stderr, "  -t\tcamera type (max or ait)\n");
 	fprintf(stderr, "  -f\tfirmware file to load (relative to %s if not starting with '/' or '.')\n", FW_DIR);
 	return EXIT_FAILURE;
 }
 
 int main(int argc, char *argv[]) {
 	bool all = false;
-	char *device_path = NULL, *firmware_path = NULL;
+	char *device_path = NULL, *firmware_path = NULL, *cam_type = NULL;
 	int opt;
 
-	while ((opt = getopt(argc, argv, "ad:f:")) != -1) {
+	while ((opt = getopt(argc, argv, "ad:f:t:")) != -1) {
 		switch (opt) {
 		case 'a':
 			all = true;
@@ -137,6 +181,9 @@ int main(int argc, char *argv[]) {
 		case 'f':
 			firmware_path = optarg;
 			break;
+		case 't':
+			cam_type = optarg;
+			break;
 		default:
 			return usage(argv);
 		}
@@ -145,7 +192,7 @@ int main(int argc, char *argv[]) {
 	libusb_device_handle *handle;
 
 	if (all) {
-		if (device_path || firmware_path) {
+		if (device_path || firmware_path || cam_type) {
 			fprintf(stderr, "-a must be used alone!\n");
 			return usage(argv);
 		}
@@ -182,7 +229,7 @@ int main(int argc, char *argv[]) {
 					continue;
 				}
 
-				if (!ait_upload_fw_uvc(handle, cam->firmware))
+				if (!upload_fw(handle, cam->firmware, cam->type))
 					fprintf(stderr, "Firmware upload failed!\n");
 
 				libusb_close(handle);
@@ -192,8 +239,12 @@ int main(int argc, char *argv[]) {
 			fprintf(stderr, "No supported cameras found.\n");
 		libusb_free_device_list(list, 1);
 	} else {
-		if (!device_path || !firmware_path) {
-			fprintf(stderr, "Both device and firmware path must be specified!\n");
+		if (!device_path || !firmware_path || !cam_type) {
+			fprintf(stderr, "Both device and firmware path and also device type must be specified!\n");
+			return usage(argv);
+		}
+		if (strcmp(cam_type, "ait") && strcmp(cam_type, "max")) {
+			fprintf(stderr, "Invalid camera type '%s'. Must be either 'ait' or 'max'\n", cam_type);
 			return usage(argv);
 		}
 
@@ -217,7 +268,7 @@ int main(int argc, char *argv[]) {
 			return EXIT_FAILURE;
 		}
 
-		if (!ait_upload_fw_uvc(handle, firmware_path))
+		if (!upload_fw(handle, firmware_path, !strcmp(cam_type, "max") ? CAM_MAX : CAM_AIT))
 			fprintf(stderr, "Firmware upload failed\n");
 
 		libusb_close(handle);
