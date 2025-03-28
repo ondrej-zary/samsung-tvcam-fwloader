@@ -13,13 +13,13 @@ it's plugged in.
 This project is a firmware loader that allows Samsung TV cameras to be used
 in Linux (and possibly other OSs).
 
-Camera type | USB ID    | Firmware            | Loader     | Status
+Camera type | USB ID    | Firmware            | Chip type  | Status
 ------------|-----------|---------------------|------------|-------------------------------------------
 CY-STC1100  | 04e8:2058 | mgfw_2058.bin       |            | not supported, probably not UVC compatible
-VG-STC2000  | 04e8:2059 | raptor_firmware.img | max_fwload | untested
-VG-STC3000  | 04e8:205c | FalconFW.bin        | ait_fwload | should work
-VG-STC4000  | 04e8:2061 | FalconPlus_FW.bin   | ait_fwload | works
-VG-STC5000  | 04e8:2065 | Heron_Ext_FW.bin    | ait_fwload | works
+VG-STC2000  | 04e8:2059 | raptor_firmware.img | MAX	   | untested
+VG-STC3000  | 04e8:205c | FalconFW.bin        | AIT	   | should work
+VG-STC4000  | 04e8:2061 | FalconPlus_FW.bin   | AIT	   | works
+VG-STC5000  | 04e8:2065 | Heron_Ext_FW.bin    | AIT	   | works
 
 Compiling from source
 ---------------------

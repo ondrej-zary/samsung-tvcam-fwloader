@@ -6,12 +6,12 @@ SUBSYSTEM!="usb", GOTO="samsung-tvcam-fwloader_rules_end"
 ATTR{idVendor}=="04e8", ATTR{idProduct}=="2059", RUN+="max_fwload -d '%N' -f raptor_firmware.img"
 
 # VG-STC3000
-ATTR{idVendor}=="04e8", ATTR{idProduct}=="205c", RUN+="ait_fwload -d '%N' -f FalconFW.bin"
+ATTR{idVendor}=="04e8", ATTR{idProduct}=="205c", RUN+="samsung_tvcam_fwload -d '%N' -f FalconFW.bin"
 
 # VG-STC4000
-ATTR{idVendor}=="04e8", ATTR{idProduct}=="2061", RUN+="ait_fwload -d '%N' -f FalconPlus_FW.bin"
+ATTR{idVendor}=="04e8", ATTR{idProduct}=="2061", RUN+="samsung_tvcam_fwload -d '%N' -f FalconPlus_FW.bin"
 
 # VG-STC5000
-ATTR{idVendor}=="04e8", ATTR{idProduct}=="2065", RUN+="ait_fwload -d '%N' -f Heron_Ext_FW.bin"
+ATTR{idVendor}=="04e8", ATTR{idProduct}=="2065", RUN+="samsung_tvcam_fwload -d '%N' -f Heron_Ext_FW.bin"
 
 LABEL="samsung-tvcam-fwloader_rules_end"
