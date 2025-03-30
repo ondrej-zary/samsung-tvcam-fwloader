@@ -3620,7 +3620,7 @@ lsusb (firmware loaded):
 
 ### VG-STC5000
  * 1920x1080/30fps
- * Alpha Imaging Tech. AIT???? (firmware begins with "AIT842SF" string)
+ * Alpha Imaging Tech. AIT5859B (firmware begins with "AIT842SF" string)
 
 lsusb (no firmware loaded):
 
