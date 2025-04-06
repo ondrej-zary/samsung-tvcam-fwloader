@@ -7,7 +7,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <windows.h>
-#include "libusb.h"
+#include <libusb.h>
 
 #define TIMEOUT	1000
 #define DIR_IN		0
